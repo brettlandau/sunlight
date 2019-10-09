@@ -1,0 +1,14 @@
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en"></script>
+
+<script>
+    var pos;
+    var mylocation;
+    function initAutocomplete(){
+        var input = document.getElementById('autocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function(){
+            mylocation = autocomplete.getPlace();
+            alert(mylocation);
+        })
+    }
+</script>
