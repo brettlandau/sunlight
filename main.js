@@ -55,13 +55,13 @@ function weatherReport(lat, lon){
         // Sun sets in less than 12 hours, use 0th colorCycle
         colorCycle = 0;
       }
-      else if (tmh < 9) {
+      if (tmh < 9) {
         colorCycle = 1;
       }
-      else if (tmh < 6) {
+      if (tmh < 6) {
         colorCycle = 2;
       }
-      else if (tmh < 3){
+      if (tmh < 3){
         colorCycle = 3;
       }
       else{
