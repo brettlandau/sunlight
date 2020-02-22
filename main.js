@@ -44,31 +44,31 @@ function weatherReport(lat, lon){
       tmDif = -1 * tmDif
       tmm = Math.floor(tmDif/60)%60;
       tmh = Math.floor(tmDif/3600);
-      timeInfo = "The sun set " + tmh + " hours and " + tmm + " minutes ago.";
+      timeInfo = "The sun set " + tmh + " hours and " + tmm + " minutes ago ";
       colorCycle = 4;
     }
     else{
       tmm = Math.floor(tmDif/60)%60;
       tmh = Math.floor(tmDif/3600);
-      timeInfo = "Sun will set in " + tmh + " hours and " + tmm + " minutes.";
-      if(tmh < 12){
+      timeInfo = "Sun will set in " + tmh + " hours and " + tmm + " minutes ";
+      if (tmh < 12 && tmh >= 9){
         // Sun sets in less than 12 hours, use 0th colorCycle
         colorCycle = 0;
       }
-      if (tmh < 9) {
+      else if (tmh < 9 && tmh >= 6) {
         colorCycle = 1;
       }
-      if (tmh < 6) {
+      else if (tmh < 6 && tmh >= 3) {
         colorCycle = 2;
       }
-      if (tmh < 3){
+      else if (tmh < 3 && tmh >= 0){
         colorCycle = 3;
       }
       else{
         colorCycle = 4;
       }
     }
-    document.getElementById("h1").innerHTML = timeInfo;
+    document.getElementById("h1").innerHTML = timeInfo + "in " + forecast.name;
     document.body.style.backgroundImage =
     'linear-gradient(' + colors[colorCycle+1] + ',' + colors[colorCycle] +')';
   });
