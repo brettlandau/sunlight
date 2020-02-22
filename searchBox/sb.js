@@ -34,11 +34,13 @@ function weatherReport(latitude, longitude){
 
   $.getJSON(api_call, function(forecast) {
     tmDif = forecast.daily.data[0].sunsetTime - forecast.currently.time;
-    tmm = Math.floor(tmDif/60)%60;
-    tmh = Math.floor(tmDif/3600);
-    alert("Sun will set in " + tmh + " hours and " + tmm + " minutes.");
+    if(tmDif < 0){
+      alert("The sun has set :(");
+    }
+    else{
+      tmm = Math.floor(tmDif/60)%60;
+      tmh = Math.floor(tmDif/3600);
+      alert("Sun will set in " + tmh + " hours and " + tmm + " minutes.");
+    }
   });
-
-
-
 }
