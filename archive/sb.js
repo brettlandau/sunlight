@@ -6,6 +6,10 @@ var tmh;
 var tmm;
 var tmDif;
 
+window.onload = function() {
+  weatherReport(33.748997, -84.387985);
+};
+
 function initAutocomplete() {
 
   autocomplete = new google.maps.places.Autocomplete(
@@ -36,6 +40,7 @@ function weatherReport(latitude, longitude){
     tmDif = forecast.daily.data[0].sunsetTime - forecast.currently.time;
     if(tmDif < 0){
       alert("The sun has set :(");
+      document.getElementById("someInput").value = "The sun has set :(";
     }
     else{
       tmm = Math.floor(tmDif/60)%60;
