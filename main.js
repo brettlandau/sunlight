@@ -1,9 +1,12 @@
+// 2020 BNL
 // Colors from: https://www.colourlovers.com/palette/827696/Sunset
-// Weather api from: https://fcc-weather-api.glitch.me/
+// Weather api from: https://openweathermap.org/
 // Code inspiration from: https://codepen.io/freeCodeCamp/pen/bELRjV
+// Code inspiration from: https://yilongzhu.com
 // Shoutouts w3schools
 
-var api = "https://fcc-weather-api.glitch.me/api/current?";
+var api = "https://api.openweathermap.org/data/2.5/weather?";
+var key = "3179f2d2839fd0396461a12b17144acf";
 var lat;
 var lng;
 var tmh;
@@ -18,11 +21,11 @@ var colors = ["#40284A","#F7DE55","#F07E07","#B34D25","#73434B", "#40284A"];
 // 3: b34 dor
 // 4: 734 bro
 
-window.onload = function() {
-  getLoc();
-};
+// window.onload = function() {
+//   getLoc();
+// };
 
-function getLoc(){
+$( document ).ready(function(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
     var lat = "lat=" + position.coords.latitude;
@@ -34,10 +37,10 @@ function getLoc(){
   else {
     console.log("Geolocation is not supported by this browser.");
   }
-}
+})
 
 function weatherReport(lat, lon){
-	var url = api + lat + "&" + lon;
+	var url = api + lat + "&" + lon + "&appid="+key;
   $.getJSON(url, function(forecast) {
     tmDif = forecast.sys.sunset - forecast.dt;
     if(tmDif < 0){
