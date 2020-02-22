@@ -21,10 +21,6 @@ var colors = ["#40284A","#F7DE55","#F07E07","#B34D25","#73434B", "#40284A"];
 // 3: b34 dor
 // 4: 734 bro
 
-// window.onload = function() {
-//   getLoc();
-// };
-
 $( document ).ready(function(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
